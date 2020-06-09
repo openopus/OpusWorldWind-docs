@@ -11,14 +11,6 @@ define([
     'OpusWorldWind/edittools/EditToolClickRecognizer',
     'OpusWorldWind/misc/ExtUtils'
 ], function (OpusWorldWind, WorldWind, Logger, UnsupportedOperationError, Position, Vec2, Vec3, Line, AbstractPathEditTool, EditToolClickRecognizer, ExtUtils) {
-    
-    /**
-     * Constructs a layer showing the Earth's atmosphere.
-     * @alias AbstractAirspacePathEditTool
-     * @constructor
-     * @classdesc Provides an edit tool for airspace paths.
-     * @augments AbstractPathEditTool
-     */
     var AbstractAirspacePathEditTool = function (wwd, path) {
         AbstractPathEditTool.call(this, wwd, path);
 
@@ -215,45 +207,22 @@ define([
         }
     };
 
-    /**
-     * Sets the altitude of the AirspacePathEditTool.
-     * @param {number} index The layer index.
-     * @param {number} altitude The altitude.
-     * @returns {Boolean} true if altitude is set, otherwise false.
-     * @throws {ArgumentError} If the specified WorldWindow is null or undefined.
-     */
     AbstractAirspacePathEditTool.prototype.setAltitude = function (index, altitude) {
         throw new UnsupportedOperationError(Logger.logMessage(Logger.LEVEL_SEVERE, "AbstractAirspacePathEditTool", "setAltitude", "abstractInvocation"));
     };
 
-    /**
-     * getMinimumRequiredPositions
-     * @returns {Boolean}
-     */
     AbstractAirspacePathEditTool.prototype.getMinimumRequiredPositions = function () {
         throw new UnsupportedOperationError(Logger.logMessage(Logger.LEVEL_SEVERE, "AbstractAirspacePathEditTool", "getMinimumRequiredPositions", "abstractInvocation"));
     };
 
-    /**
-     * getPositions
-     * @returns {Boolean}
-     */
     AbstractAirspacePathEditTool.prototype.getPositions = function () {
         throw new UnsupportedOperationError(Logger.logMessage(Logger.LEVEL_SEVERE, "AbstractAirspacePathEditTool", "getPositions", "abstractInvocation"));
     };
 
-    /**
-     * setPositions
-     * @returns {Boolean}
-     */
     AbstractAirspacePathEditTool.prototype.setPositions = function (positions) {
         throw new UnsupportedOperationError(Logger.logMessage(Logger.LEVEL_SEVERE, "AbstractAirspacePathEditTool", "setPositions", "abstractInvocation"));
     };
 
-    /**
-     * isLoop
-     * @returns {Boolean}
-     */
     AbstractAirspacePathEditTool.prototype.isLoop = function () {
         throw new UnsupportedOperationError(Logger.logMessage(Logger.LEVEL_SEVERE, "AbstractAirspacePathEditTool", "isLoop", "abstractInvocation"));
     };
