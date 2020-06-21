@@ -27,6 +27,12 @@ export class ExamplesComponent implements OnInit {
                 name: 'Shapes Demo',
                 path: 'examples/shapes',
                 description: "Shows all the different shapes of OWW."
+            },
+            {
+                id: 'placemarks',
+                name: 'Placemarks Demo',
+                path: 'examples/placemarks',
+                description: "Shows some different placemarks of OWW."
             }
         ]
     }

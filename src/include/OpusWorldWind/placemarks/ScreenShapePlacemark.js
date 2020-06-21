@@ -1,13 +1,12 @@
 define([
-    'WebWorldWind/WorldWind',
     'WebWorldWind/shaders/BasicProgram',
     'WebWorldWind/shapes/AbstractShape',
     'WebWorldWind/geom/Vec2',
     'WebWorldWind/geom/Vec3',
     'WebWorldWind/geom/Matrix',
     'WebWorldWind/pick/PickedObject',
-    'OpusWorldWind/placemarks/ScreenShapePlacemarkAttributes'
-], function (WorldWind, BasicProgram, AbstractShape, Vec2, Vec3, Matrix, PickedObject, ScreenShapePlacemarkAttributes) {
+    './ScreenShapePlacemarkAttributes'
+], function (BasicProgram, AbstractShape, Vec2, Vec3, Matrix, PickedObject, ScreenShapePlacemarkAttributes) {
     if (!hull)
     {
         throw new Error('hull library is required for ScreenShapePlacemark: https://github.com/AndriiHeonia/hull');
