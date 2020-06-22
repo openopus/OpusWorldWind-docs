@@ -1,0 +1,8 @@
+{
+    "source": {
+        "include": ["include/OpusWorldWind"],
+        "exclude": ["includes/OpusWorldWind/highDpiOverrides.js", "includes/OpusWorldWind/overrides.js"],
+        "includePattern": ".+\\.js(doc|x)?$",
+        "excludePattern": "(^|\\/|\\\\)_"
+    }
+}

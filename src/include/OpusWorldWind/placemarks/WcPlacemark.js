@@ -1,19 +1,35 @@
+/**
+ * @exports WcPlacemark
+ */
 define([
     'WebWorldWind/WorldWind',
     'WebWorldWind/shapes/Placemark',
     'WebWorldWind/util/Color',
     'OpusWorldWind/programs/OutlineTextureProgram'
-], function (WorldWind, Placemark, Color, OutlineTextureProgram) {
+], function(WorldWind, Placemark, Color, OutlineTextureProgram) {
+
     /**
-     * An extension over Placemark that adds extra functionality needed by the Raptor Web Client.
+     * Creates a new WcPlacemark.
+     * 
+     * @alias WcPlacemark
+     * @constructor
+     * @augments Placemark
+     * @classdesc WcPlacemark represents a WcPlacemark.
+     * @param  {WcPlacemark} attributes
      */
-    var WcPlacemark = function (position, eyeDistanceScaling, attributes) {
+    var WcPlacemark = function(position, eyeDistanceScaling, attributes) {
         Placemark.call(this, position, eyeDistanceScaling, attributes);
     };
 
     WcPlacemark.prototype = Object.create(Placemark.prototype);
 
-    WcPlacemark.prototype.beginDrawing = function (dc) {
+    /**
+     * Initializes the drawing process for this placemark.
+     * 
+     * @function beginDrawing
+     * @param {WebGLRenderingContext} drawingContext - Drawing context.
+     */
+    WcPlacemark.prototype.beginDrawing = function(dc) {
         var gl = dc.currentGlContext;
         dc.findAndBindProgram(OutlineTextureProgram);
 
@@ -27,16 +43,20 @@ define([
         program.loadModulateColor(gl, dc.pickingMode);
     };
 
-    WcPlacemark.prototype.doDrawOrderedPlacemark = function (dc) {
+    /**
+     * Called during the rendering process to render this placemark.
+     * 
+     * @function doDrawOrderedPlacemark
+     * @param {WebGLRenderingContext} drawingContext - Drawing context.
+     */
+    WcPlacemark.prototype.doDrawOrderedPlacemark = function(dc) {
         var gl = dc.currentGlContext,
             program = dc.currentProgram;
-        if (!dc.pickingMode && this.activeAttributes && this.activeAttributes.drawOutline)
-        {
+        if (!dc.pickingMode && this.activeAttributes && this.activeAttributes.drawOutline) {
             program.loadOutlineHorizontalThickness(gl, this.activeAttributes.outlineWidth / this.imageBounds.width);
             program.loadOutlineVerticalThickness(gl, this.activeAttributes.outlineWidth / this.imageBounds.height);
             program.loadOutlineColor(gl, this.activeAttributes.outlineColor);
-        } else
-        {
+        } else {
             program.loadOutlineHorizontalThickness(gl, 0);
             program.loadOutlineVerticalThickness(gl, 0);
             program.loadOutlineColor(gl, Color.TRANSPARENT);

@@ -51,7 +51,7 @@ function (WorldWind,
     var customLayer = new WorldWind.RenderableLayer("Custom");
 
 
-    // SQUARE PLACEMARK -----------------------------------
+    // SquarePlacemark -----------------------------------
 
     var canvas = document.createElement("canvas"),
     ctx2d = canvas.getContext("2d"),
@@ -72,6 +72,9 @@ function (WorldWind,
     var placemarkPosition = new WorldWind.Position(47.684444, -121.129722, 1e2);
 
     var placemark = new SquarePlacemark(placemarkPosition, false, placemarkAttributes);
+    
+    placemark.width = 20;
+    placemark.height = 10;
     
     customLayer.addRenderable(placemark);
 

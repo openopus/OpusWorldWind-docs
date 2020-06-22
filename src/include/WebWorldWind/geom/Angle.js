@@ -16,11 +16,11 @@
  */
 define([], function () {
     "use strict";
+    
     /**
      * Provides constants and functions for working with angles.
      * @exports Angle
      */
-
     var Angle = {
         /**
          * Conversion factor for degrees to radians.
